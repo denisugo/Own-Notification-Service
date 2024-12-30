@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Read</title>
+  </head>
+  <body>
+    <div>Hello</div>
+    <ul id="list"></ul>
+  </body>
+  <script>
+    const fetchAllComments = async () => {
+      const response = await fetch("http://localhost:5555/comments");
+      return response.json();
+    };
+
+    const setComment = (comment) => {
+      const newElement = document.createElement("li");
+      newElement.textContent = comment;
+      document.getElementById("list").appendChild(newElement);
+    };
+
+    const evtSource = new EventSource("http://localhost:5555/live", {
+      withCredentials: false,
+    });
+
+    evtSource.addEventListener("time-update", (event) => {
+      console.log("message recieved", event);
+      if (event.data === "Subscriber created") {
+        fetchAllComments().then((comments) => {
+          // should be ensured that this list is set FIRST
+          // and that each comment from the event is properly merged into the comment list
+          comments.forEach((comment) => {
+            setComment(JSON.stringify(comment));
+          });
+        });
+      } else {
+        setComment(event.data);
+      }
+    });
+  </script>
+</html>

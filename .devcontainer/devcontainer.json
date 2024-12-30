@@ -1,0 +1,52 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/marcosgomesneto/bun-devcontainers/tree/main/src/basic-bun
+{
+	"name": "Bun",
+	"dockerFile": "Dockerfile",
+	// Configure tool-specific properties.
+	"customizations": {
+		// Configure properties specific to VS Code.
+		"vscode": {
+			// Add the IDs of extensions you want installed when the container is created.
+			"extensions": [
+				"oven.bun-vscode",
+				"biomejs.biome",
+				"Gruntfuggly.todo-tree",
+				"esbenp.prettier-vscode",
+				"nrwl.angular-console",
+				"ritwickdey.LiveServer"
+			],
+			"settings": {
+				"[yaml]": {
+					"editor.defaultFormatter": "esbenp.prettier-vscode"
+				},
+				"[json]": {
+					"editor.defaultFormatter": "biomejs.biome"
+				},
+				"[jsonc]": {
+					"editor.defaultFormatter": "biomejs.biome"
+				},
+				"[javascript]": {
+					"editor.defaultFormatter": "biomejs.biome"
+				},
+				"[typescript]": {
+					"editor.defaultFormatter": "biomejs.biome"
+				},
+				"[html]": {
+					"editor.defaultFormatter": "esbenp.prettier-vscode"
+				},
+				"editor.cursorBlinking": "smooth",
+				"editor.cursorSmoothCaretAnimation": "on",
+				"editor.formatOnSave": true,
+				"editor.formatOnPaste": true,
+				"editor.codeActionsOnSave": {
+					"source.organizeImports.biome": "explicit",
+					"quickfix.biome": "explicit"
+				}
+			}
+		}
+	},
+	"features": {
+		"ghcr.io/itsmechlark/features/rabbitmq-server:1": {}
+	}
+}

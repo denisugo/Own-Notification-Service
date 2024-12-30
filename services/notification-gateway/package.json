@@ -1,0 +1,15 @@
+{
+	"name": "notification-gateway",
+	"type": "module",
+	"scripts": {
+		"dev": "PORT=5555 bun run --hot src/index.ts",
+		"lint": "bunx biome check"
+	},
+	"dependencies": {
+		"hono": "^4.6.15",
+		"rabbitmq-client": "^5.0.2"
+	},
+	"devDependencies": {
+		"@types/bun": "latest"
+	}
+}

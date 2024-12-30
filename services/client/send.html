@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Send</title>
+  </head>
+  <body>
+    <p>Send your comment</p>
+    <form action="http://localhost:5555/comments" method="post" id="form">
+      <input type="radio" id="user1" name="userId" value="1" />
+      <label for="user1">Dorian</label><br />
+      <input type="radio" id="user2" name="userId" value="2" />
+      <label for="user2">Master</label><br />
+
+      <label for="text">Text:</label><br />
+      <input type="text" id="text" name="text" /><br />
+
+      <input type="submit" value="Submit">
+    </form>
+  </body>
+</html>

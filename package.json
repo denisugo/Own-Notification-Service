@@ -1,0 +1,14 @@
+{
+	"name": "own-notification-service",
+	"workspaces": ["services/*"],
+	"scripts": {
+		"start-rabbit": "service rabbitmq-server start",
+		"dev": "bunx --bun nx run-many -t dev",
+		"lint": "bunx --bun nx run-many -t lint"
+	},
+	"dependencies": {},
+	"devDependencies": {
+		"@biomejs/biome": "1.9.4",
+		"nx": "20.3.0"
+	}
+}
